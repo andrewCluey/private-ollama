@@ -15,3 +15,5 @@ A Load Balancer service, named "ollama-service", will listen for incoming reques
 **Usage**
 
 To use this configuration, apply the YAML file to your Kubernetes cluster using `kubectl apply -f ollama-deployment.yaml`. Once deployed, you can access the Ollama application API by connecting to `<load-balancer-ip>:8080`.
+
+.

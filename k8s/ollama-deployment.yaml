@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ollama
-        image: ollama/ollama:latest  # Replace with the actual image if needed
+        image: ollama/ollama:latest
         ports:
         - containerPort: 11434
         env:
