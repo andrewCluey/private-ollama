@@ -3,7 +3,6 @@ resource "azurerm_resource_group" "main" {
   name     = "rg-${local.name_suffix}"
 }
 
-
 resource "azurerm_kubernetes_cluster" "main" {
   location            = azurerm_resource_group.main.location
   name                = "aks-${local.name_suffix}"
@@ -15,9 +14,9 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
 
   default_node_pool {
-    name                = "agentpool"
-    vm_size            = "Standard_D4_v2"
-    node_count         = var.node_count
+    name       = "agentpool"
+    vm_size    = var.node_size
+    node_count = var.node_count
   }
 
   linux_profile {

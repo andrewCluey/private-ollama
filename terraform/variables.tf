@@ -21,3 +21,9 @@ variable "username" {
   description = "The admin username for the new cluster."
   default     = "azureadmin"
 }
+
+variable "node_size" {
+  type        = string
+  description = "The size of the nodes in the node pool."
+  default     = "Standard_D4_v2"
+}

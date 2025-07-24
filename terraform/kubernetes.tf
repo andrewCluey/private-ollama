@@ -1,5 +1,5 @@
 
-
+# 
 resource "kubernetes_deployment" "ollama" {
   metadata {
     name = "ollama"
@@ -49,6 +49,7 @@ resource "kubernetes_service" "ollama_service" {
   }
 
   spec {
+    load_balancer_source_ranges = [local.client_public_ip]
     selector = {
       app = "ollama"
     }
