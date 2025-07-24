@@ -2,7 +2,7 @@
 .direnv/
 **/.terraform/
 **.tfstate*
-prod.tfvars
+*.tfvars
 **/kubeconfig
 
 # ignore sops easy edit temp files
