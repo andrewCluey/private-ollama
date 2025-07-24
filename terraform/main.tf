@@ -1,26 +1,14 @@
-# Generate random resource group name
-resource "random_pet" "rg_name" {
-  prefix = var.resource_group_name_prefix
+resource "azurerm_resource_group" "main" {
+  location = var.location
+  name     = "rg-${local.name_suffix}"
 }
 
-resource "azurerm_resource_group" "rg" {
-  location = var.resource_group_location
-  name     = random_pet.rg_name.id
-}
 
-resource "random_pet" "azurerm_kubernetes_cluster_name" {
-  prefix = "cluster"
-}
-
-resource "random_pet" "azurerm_kubernetes_cluster_dns_prefix" {
-  prefix = "dns"
-}
-
-resource "azurerm_kubernetes_cluster" "k8s" {
-  location            = azurerm_resource_group.rg.location
-  name                = random_pet.azurerm_kubernetes_cluster_name.id
-  resource_group_name = azurerm_resource_group.rg.name
-  dns_prefix          = random_pet.azurerm_kubernetes_cluster_dns_prefix.id
+resource "azurerm_kubernetes_cluster" "main" {
+  location            = azurerm_resource_group.main.location
+  name                = "aks-${local.name_suffix}"
+  resource_group_name = azurerm_resource_group.main.name
+  dns_prefix          = "aks-${local.name_suffix}"
 
   identity {
     type = "SystemAssigned"
