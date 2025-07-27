@@ -40,3 +40,7 @@ output "kube_config" {
   value     = azurerm_kubernetes_cluster.main.kube_config_raw
   sensitive = true
 }
+
+output "public_ip" {
+  value = kubernetes_service.ollama_service.status[0].load_balancer[0].ingress[0].ip
+}

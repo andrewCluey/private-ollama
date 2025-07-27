@@ -1,6 +1,6 @@
 import os
 
-def read_files_as_prompt(directory, max_file_size=50_000):
+def read_files_as_prompt(directory, max_file_size=50000):
     """
     Reads all code files in the given directory (recursively) and concatenates
     them into a single prompt with file separators.
