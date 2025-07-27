@@ -41,7 +41,6 @@ output "kube_config" {
   sensitive = true
 }
 
-
 output "public_ip" {
   value = kubernetes_service.ollama_service.status[0].load_balancer[0].ingress[0].ip
 }

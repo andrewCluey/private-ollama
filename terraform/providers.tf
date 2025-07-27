@@ -30,3 +30,9 @@ provider "kubernetes" {
 
 # This data source retrieves the Azure client configuration
 data "azurerm_client_config" "main" {}
+
+# This data source retrieves the public IP address of the client
+data "http" "my_ip" {
+  url = "https://api.ipify.org"
+}
+
