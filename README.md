@@ -1,7 +1,7 @@
 **Deployment and Service Configuration for private Ollama**
 =============================================
 
-This YAML file defines a Kubernetes deployment and service for the Ollama application.
+This repository defines an Azure Kubernetes Service deployment and runs a Pod containing the Ollama Open Source Platform.
 
 ### Deployment
 
@@ -12,8 +12,16 @@ The deployment named "ollama" creates a single replica of the Ollama container, 
 A Load Balancer service, named "ollama-service", will listen for incoming requests on port 
 8080, which is then forwarded to the internal port 11434.
 
+The Terraform deployment will gather the Public IP Address from where you run terraform, and configure the service to only accept connections from this IP address.
+
 **Usage**
 
-To use this configuration, apply the YAML file to your Kubernetes cluster using `kubectl apply -f ollama-deployment.yaml`. Once deployed, you can access the Ollama application API by connecting to `<load-balancer-ip>:8080`.
+To deploy this solution, clone the repository, change directory to `terraform` and run the standard terraform deployment commands:
+- teraform init
+- terraform plan
+- terraform apply
+
+To destroy the solution when you are finished, run:
+- terraform destroy
 
 ##
