@@ -1,7 +1,13 @@
 **Deployment and Service Configuration for private Ollama**
 =============================================
 
-This repository defines an Azure Kubernetes Service deployment and runs a Pod containing the Ollama Open Source Platform.
+This repository is an exmaple repository for running private LLMs using Ollama. There are options to run with an Azure Kubernetes Service, with the Ollama Open Source Platform.
+
+Alternatvely, deploy a bundled container with the open-webui and ollama in an Azure COntainer App. 
+
+Both can be deployed simply anbd quickly using Terraform, within the ./terraform directory.
+- aca: Is used for the Azure Container App deployment
+- aks: Will deploy Ollama in an instance of Azure Kubernetes Services.
 
 ### Deployment
 
